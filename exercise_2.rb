@@ -11,7 +11,7 @@ def pig_latin(word)
   vowels = ["a", "e", "i", "o", "u"]
   index_to_split = []
   if !vowels.include?(word.chars.first)
-    word_split = word.split("").each do |letter|
+    word.split("").each do |letter|
       index_to_split << word.index(letter) if vowels.include?(letter)
     end  
     pig_latin_word = word[index_to_split[0]..-1] + word[0...index_to_split[0]] + "ay"
