@@ -9,10 +9,13 @@
 
 def pig_latin(word)
   vowels = ["a", "e", "i", "o", "u"]
+  index_to_split = []
   if !vowels.include?(word.chars.first)
-    consonants = word.split("").each { |letter| }
-    consonants
-    #word[1..-1] + word.chars.first + "ay"
+    word_split = word.split("").each do |letter|
+      index_to_split << word.index(letter) if vowels.include?(letter)
+    end  
+    pig_latin_word = word[index_to_split[0]..-1] + word[0...index_to_split[0]] + "ay"
+    pig_latin_word 
   else
     word + "way"
   end
